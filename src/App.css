@@ -1,0 +1,239 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #F9FAFB; 
+  min-height: 100vh;
+  justify-content: space-around; 
+}
+
+
+.App-header {
+  font-size: 20px;
+  color: #333;
+  padding: 20px;
+  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background: #F9FAFB;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 30px;
+}
+
+
+.button-container {
+  position: relative; 
+  bottom: 50px; 
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  width: 100%; 
+}
+
+.camera-button,
+.gallery-button {
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease; 
+}
+
+.camera-button:active,
+.gallery-button:active {
+  transform: scale(0.95);
+}
+
+.camera-button {
+  background-color: #feead2;
+}
+
+.gallery-button {
+  background-color: #D9E6FF; 
+}
+
+.camera-button img,
+.gallery-button img {
+  max-width: 70%; 
+  max-height: 70%;
+}
+
+.image-placeholder {
+  width: 80vw;
+  height: 50vh; 
+  margin: 20px auto;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #FFCCCC, #FEB9B9);
+  box-shadow: 20px 20px 40px #CDA8A5,
+              -20px -20px 40px #FFFFFF;
+  color: #333;
+  flex-direction: column;
+  padding: 15px;
+  overflow: hidden; 
+}
+
+.image-placeholder img {
+  max-width: 100%;
+  max-height: 100%; 
+  height: auto; 
+}
+
+
+.image-placeholder h1 {
+  font-size: 5em; 
+  margin: 0.2em 0; 
+  color: #333; 
+}
+
+.image-placeholder p {
+  font-size: 1.5em; 
+  margin: 0.2em 0; 
+  color: #555; 
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute; 
+  top: 15px;
+  left: 8vw;
+}
+
+.menu-button img {
+  width: 25px; 
+  height: auto; 
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  width: 100vw; 
+}
+
+.result-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.frame {
+  width: 80vw;
+  margin: auto; 
+  position: relative;
+}
+
+/* .image-container {
+  position: absolute;
+  top: 10%; 
+  left: 10%;
+  right: 10%;
+  bottom: 10%;image
+} */
+
+.result-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; 
+}
+
+.download-container{
+  position: relative; 
+  bottom: 50px; 
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  width: 100%; 
+}
+
+.download-button-2 {
+  width: 60px; 
+  /* width: 25px; 
+  height: auto;  */
+  height: 60px;
+  border-radius: 50%; /* 圆形 */
+  border: none;
+  background-color: rgba(243, 199, 234, 1); /* 与 camera-button 相同背景色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease;
+}
+
+.download-button-2 img {
+  max-width: 100%; /* 图片最大宽度为按钮宽度的70% */
+  max-height: 100%; /* 图片最大高度为按钮高度的70% */
+}
+
+.download-button-2:active {
+  transform: scale(0.95);
+}
+
+.download-button-container {
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  padding: 10px;
+  width: 100%;
+}
+
+
+.image-container-2 img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.page2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container-2 {
+  height: 50vh; 
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* background: linear-gradient(145deg, #FFCCCC, #FEB9B9); */
+  /* box-shadow: 20px 20px 40px #CDA8A5,
+              -20px -20px 40px #FFFFFF; */
+  /* color: #333; */
+  flex-direction: column;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.image-container-2 h1 {
+  font-size: 5em;
+  margin: 0.2em 0;
+  color: #333;
+}
+
+.image-container-2 p {
+  font-size: 1.5em;
+  margin: 0.2em 0;
+  color: #555;
+}

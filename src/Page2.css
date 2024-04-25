@@ -1,0 +1,23 @@
+/* 
+.image-container {
+    position: relative; 
+    bottom: 50px; 
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%; 
+  }
+
+.download-button {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw; 
+  } 
+  */
