@@ -28,7 +28,7 @@ function App() {
     formData.append('file', file);
 
     setLoading(true);
-    fetch('http://localhost:5000/upload', {
+    fetch('/upload', {
       method: 'POST',
       body: formData,
     })
@@ -36,7 +36,7 @@ function App() {
     .then(data => {
       setUploadedImageUrl(data.imageUrl);
       setLoading(false);
-      setDownload(true); // Move to page 2 after successful image upload and response
+      setDownload(true); 
       navigate('/download');
     })
     .catch(error => {
