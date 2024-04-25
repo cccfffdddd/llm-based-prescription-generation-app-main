@@ -15,7 +15,7 @@ function App() {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [page2, setPage2] = useState(false);
+  const [download, setDownload] = useState(false);
   const navigate = useNavigate();
 
   const handleImageUpload = (event) => {
@@ -36,8 +36,8 @@ function App() {
     .then(data => {
       setUploadedImageUrl(data.imageUrl);
       setLoading(false);
-      setPage2(true); // Move to page 2 after successful image upload and response
-      navigate('/page2');
+      setDownload(true); // Move to page 2 after successful image upload and response
+      navigate('/download');
     })
     .catch(error => {
       console.error('Error:', error);
@@ -72,7 +72,7 @@ function App() {
         <div className="loading-container">
           <img src={loadingImage} alt="Loading" />
         </div>
-      ) : page2 ? (
+      ) : download ? (
         <div className='page2-container'>
           <div className='image-placeholder'>
             <div className="image-container-2">
