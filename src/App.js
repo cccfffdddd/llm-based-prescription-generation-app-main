@@ -74,7 +74,7 @@ function App() {
         </div>
       ) : download ? (
         <div className='page2-container'>
-          <div className='image-placeholder'>
+          <div className='image-placeholder-2'>
             <div className="image-container-2">
               <img src={uploadedImageUrl || image1} alt="Image 1" />
             </div>
