@@ -7,7 +7,7 @@ import ImagePlaceholder from './ImagePlaceholder';
 import loadingImage from './unicorn-hug.gif';
 import downloadIcon from './download-icon.webp';
 import cameraIcon from './camera_icon.png';
-import image1 from './placeholderImage.webp';
+import image1 from './prescription.jpg';
 import image2 from './download-icon.webp';
 import './App.css';
 
@@ -18,41 +18,38 @@ function App() {
   const [download, setDownload] = useState(false);
   const navigate = useNavigate();
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (!file) {
-      return;
-    }
+  // const downloadImage = () => {
+  //   if (uploadedImageUrl) {
+  //     const link = document.createElement('a');
+  //     link.href = uploadedImageUrl;
+  //     link.download = 'downloaded_image.png';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   }
+  // };
 
-    const formData = new FormData();
-    formData.append('file', file);
-
-    setLoading(true);
-    fetch('http://localhost:5000/upload', {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-      setUploadedImageUrl(data.imageUrl);
-      setLoading(false);
-      setDownload(true); // Move to page 2 after successful image upload and response
-      navigate('/download');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      setLoading(false);
-    });
+  const handleImageUpload = () => {
+    setTimeout(() => {
+      setLoading(true);
+      navigate('/loading');
+      setTimeout(() => {
+        setLoading(false);
+        setDownload(true);
+        navigate('/download');
+      }, 6000); // Navigate to page 2 after 1000 milliseconds
+    }, 2000);
   };
 
   const downloadImage = () => {
-    const link = document.createElement('a');
-    link.href = image1;
-    link.download = 'image1.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+        // Logic to download image1
+        const link = document.createElement('a');
+        link.href = image1;
+        link.download = 'image1.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
 
   const handleSelect = (newImage) => {
     setImage(newImage);
@@ -61,6 +58,8 @@ function App() {
   const handleMenuClick = () => {
     console.log('Menu clicked');
   };
+
+
 
   return (
     <div className="App">
@@ -72,20 +71,27 @@ function App() {
         <div className="loading-container">
           <img src={loadingImage} alt="Loading" />
         </div>
-      ) : download ? (
-        <div className='page2-container'>
-          <div className='image-placeholder'>
-            <div className="image-container-2">
-              <img src={uploadedImageUrl || image1} alt="Image 1" />
-            </div>
+      ) : download ? (<div className='page2-container'>
+        <div className='image-placeholder-2'>
+          <div className="image-container-2">
+            <img src={image1} alt="Image 1" />
           </div>
-          <div className="result-container-2">
-            <div className='download-button-container'>
-              <button className="download-button-2" onClick={downloadImage}>
-                <img src={image2} alt="Image 2" />
-              </button>
-            </div>
+        </div>
+        <div className="result-container-2">
+          <div className='download-button-container'>
+            <button className="download-button-2" onClick={downloadImage}>
+              <img src={image2} alt="Image 2" />
+            </button>
           </div>
+        </div>
+      </div>) : uploadedImageUrl ? (
+        <div className="result-container">
+          <div className="image-container">
+            <img src={uploadedImageUrl} alt="Result" className="result-image" />
+          </div>
+          <button onClick={downloadImage} className="download-button">
+            <img src={downloadIcon} alt="Download" />
+          </button>
         </div>
       ) : (
         <>
@@ -95,7 +101,8 @@ function App() {
               <input
                 type="file"
                 accept="image/*"
-                onChange={handleImageUpload}
+                capture="environment"
+                onClick={handleImageUpload}
                 style={{ display: 'none' }}
               />
               <img src={cameraIcon} alt="Camera" />
@@ -103,8 +110,10 @@ function App() {
             <GalleryButton onSelect={handleSelect} />
           </div>
         </>
-      )}
+      )
+      }
     </div>
+
   );
 }
 
